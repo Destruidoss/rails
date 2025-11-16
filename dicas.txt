@@ -1,0 +1,86 @@
+Guia rápido para criar um app Rails do zero
+1️⃣ Criar o aplicativo
+rails new NomeDoApp
+cd NomeDoApp
+bundle install
+
+2️⃣ Gerar um modelo (opcional, se precisar de banco)
+rails generate model NomeDoModelo campo1:tipo campo2:tipo
+
+
+Exemplo:
+
+rails generate model Message content:text
+
+
+Isso cria:
+
+app/models/message.rb → model Ruby
+
+db/migrate/..._create_messages.rb → migration
+
+3️⃣ Rodar a migration para criar a tabela no banco
+rails db:migrate
+
+4️⃣ Popular o banco de dados (opcional)
+
+Use db/seeds.rb para inserir dados iniciais
+
+bundle exec rake db:seed
+
+5️⃣ Gerar um controlador
+rails generate controller Pages
+
+
+Isso cria:
+
+app/controllers/pages_controller.rb → controlador
+
+Arquivos de view e teste
+
+6️⃣ Criar ações no controlador
+
+No arquivo app/controllers/pages_controller.rb:
+
+def home
+end
+
+7️⃣ Criar rotas
+
+No arquivo config/routes.rb:
+
+# rota temporária
+get 'pages/home', to: 'pages#home'  
+
+# definir página inicial
+root 'pages#home'
+
+8️⃣ Criar views (HTML) e CSS
+
+app/views/pages/home.html.erb → HTML da página
+
+app/assets/stylesheets/pages.css.scss → CSS da página
+
+9️⃣ Iniciar o servidor
+rails server
+
+
+Acesse no navegador: http://localhost:4001
+
+10️⃣ Conceitos importantes
+
+Modelo (Model) → representa a tabela do banco de dados
+
+Controlador (Controller) → processa a requisição e define dados para a view
+
+View → exibe conteúdo para o usuário
+
+Rota (Route) → define qual URL leva a qual ação
+
+11️⃣ Dicas úteis
+
+Para reiniciar o servidor: Ctrl + C → rails server
+
+Sempre gerar migrations quando criar ou alterar modelos
+
+Use bundle install quando adicionar novas gems
