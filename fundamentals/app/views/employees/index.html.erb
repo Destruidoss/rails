@@ -1,0 +1,52 @@
+<h1>Comunicado RH - Entradas e Saídas</h1>
+
+<h2>Entraram em <%= Date.current.strftime('%B de %Y') %></h2>
+<ul>
+  <% @hired_this_month.each do |emp| %>
+    <li><strong style="color: green;"><%= emp.name %></strong> - Admitido em <%= emp.hired_at.strftime('%d/%m/%Y') %></li>
+  <% end %>
+  <% if @hired_this_month.empty? %>
+    <li><em>Nenhum funcionário contratado este mês.</em></li>
+  <% end %>
+</ul>
+
+<h2>Saíram em <%= Date.current.strftime('%B de %Y') %></h2>
+<ul>
+  <% @fired_this_month.each do |emp| %>
+    <li><strong style="color: red;"><%= emp.name %></strong> - Demitido em <%= emp.fired_at.strftime('%d/%m/%Y') %></li>
+  <% end %>
+  <% if @fired_this_month.empty? %>
+    <li><em>Nenhum funcionário demitido este mês.</em></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<h2>Todos os Funcionários</h2>
+<table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+  <thead>
+    <tr style="background: #f0f0f0;">
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Admissão</th>
+      <th>Demissão</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |emp| %>
+      <tr>
+        <td><%= emp.name %></td>
+        <td><%= emp.email %></td>
+        <td><%= emp.hired_at.strftime('%d/%m/%Y') %></td>
+        <td><%= emp.fired_at ? emp.fired_at.strftime('%d/%m/%Y') : '-' %></td>
+        <td><%= emp.active ? 'Ativo' : 'Inativo' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<p>
+  <%= link_to "Gerar Comunicado por E-mail", "#", style: "padding: 12px 24px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;" %>
+</p>
