@@ -22,6 +22,11 @@ db/migrate/..._create_messages.rb → migration
 3️⃣ Rodar a migration para criar a tabela no banco
 rails db:migrate
 
+OU
+
+bundle exec rake db:migrate
+
+
 4️⃣ Popular o banco de dados (opcional)
 
 Use db/seeds.rb para inserir dados iniciais
