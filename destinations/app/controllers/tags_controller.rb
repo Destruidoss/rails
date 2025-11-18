@@ -4,6 +4,6 @@ class TagsController < ApplicationController
   end
   def show 
     @tag = Tag.find(params[:id]) 
-    @destinations = @tag.destinations 
+    @destinations = @tag.destinationsses 
   end 
 end

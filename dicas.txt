@@ -1,6 +1,6 @@
 Guia rápido para criar um app Rails do zero
-1️⃣ Criar o aplicativo
-rails new NomeDoApp
+1️⃣ Criar o aplicativo e adicionar para pular a criacao do repositorio
+rails new NomeDoApp --skip-git
 cd NomeDoApp
 bundle install
 
