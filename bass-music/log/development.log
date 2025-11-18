@@ -1,0 +1,391 @@
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='BassMusic'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-11-18 16:24:36.867432', '2025-11-18 16:24:36.867434') RETURNING "key" /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+Migrating to CreateAlbums (20251118161130)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "albums" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "cover" varchar, "title" varchar, "artist" varchar) /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251118161130') RETURNING "version" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+Migrating to CreateTracks (20251118161148)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar, "minutes" varchar, "album_id" integer) /*application='BassMusic'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tracks_on_album_id" ON "tracks" ("album_id") /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251118161148') RETURNING "version" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (8.6ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.628022', '2025-11-18 16:24:57.628022', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/my-beautiful-dark-twisted-fantasy.jpg', 'My Beautiful Dark Twisted Fantasy', 'Kanye West') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.671907', '2025-11-18 16:24:57.671907', 'Dark Fantasy', '5', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.675031', '2025-11-18 16:24:57.675031', 'Gorgeous', '6', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.677872', '2025-11-18 16:24:57.677872', 'Power', '5', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.680513', '2025-11-18 16:24:57.680513', 'All of the Lights', '5', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.683176', '2025-11-18 16:24:57.683176', 'Monster', '7', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.685751', '2025-11-18 16:24:57.685751', 'So Appalled', '7', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.688480', '2025-11-18 16:24:57.688480', 'Devil in a New Dress', '6', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.691203', '2025-11-18 16:24:57.691203', 'Runaway', '10', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.703796', '2025-11-18 16:24:57.703796', 'Hell of a Life', '6', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.709598', '2025-11-18 16:24:57.709598', 'Blame Game', '8', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.712790', '2025-11-18 16:24:57.712790', 'Lost in the World', '5', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.716323', '2025-11-18 16:24:57.716323', 'Who will Survive in America', '2', 1) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (1.0ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.717665', '2025-11-18 16:24:57.717665', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/beyonce.png', 'Beyonce', 'Beyonce') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.721891', '2025-11-18 16:24:57.721891', 'Pretty Hurts', '5', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.724699', '2025-11-18 16:24:57.724699', 'Haunted', '7', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.727406', '2025-11-18 16:24:57.727406', 'Drunk in Love', '6', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.730012', '2025-11-18 16:24:57.730012', 'Blow', '6', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.738793', '2025-11-18 16:24:57.738793', 'No Angel', '4', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.742450', '2025-11-18 16:24:57.742450', 'Partition', '6', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.745387', '2025-11-18 16:24:57.745387', 'Jealous', '4', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.748340', '2025-11-18 16:24:57.748340', 'Rocket', '7', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.751058', '2025-11-18 16:24:57.751058', 'Mine', '7', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.754086', '2025-11-18 16:24:57.754086', 'XO', '4', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.756664', '2025-11-18 16:24:57.756664', 'Flawless', '5', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.759096', '2025-11-18 16:24:57.759096', 'Superpower', '5', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.761491', '2025-11-18 16:24:57.761491', 'Heaven', '4', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 2 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.767898', '2025-11-18 16:24:57.767898', 'Blue', '5', 2) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.769277', '2025-11-18 16:24:57.769277', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/21.png', '21', 'Adele') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.773294', '2025-11-18 16:24:57.773294', 'Rolling in the Deep', '4', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.3ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.776550', '2025-11-18 16:24:57.776550', 'Rumour Has It', '4', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.779471', '2025-11-18 16:24:57.779471', 'Turning Tables', '5', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.782488', '2025-11-18 16:24:57.782488', 'Don''t You Remember', '5', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.785303', '2025-11-18 16:24:57.785303', 'Set Fire to the Rain', '5', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.787949', '2025-11-18 16:24:57.787949', 'He Won''t Go', '5', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.790658', '2025-11-18 16:24:57.790658', 'Take it All', '4', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (2.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.795319', '2025-11-18 16:24:57.795319', 'I''ll be Waiting', '5', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.5ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.810281', '2025-11-18 16:24:57.810281', 'One and Only', '6', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 3 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.814161', '2025-11-18 16:24:57.814161', 'Lovesong', '6', 3) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (1.1ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.815729', '2025-11-18 16:24:57.815729', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/channel-orange.jpg', 'Channel Orange', 'Frank Ocean') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (2.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.823069', '2025-11-18 16:24:57.823069', 'Start', '1', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.827282', '2025-11-18 16:24:57.827282', 'Thinkin Bout You', '4', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.830501', '2025-11-18 16:24:57.830501', 'Fertilizer', '1', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.832943', '2025-11-18 16:24:57.832943', 'Sierra Leone', '3', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.835193', '2025-11-18 16:24:57.835193', 'Sweet Life', '5', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (2.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.839393', '2025-11-18 16:24:57.839393', 'Not Just Money', '1', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.842471', '2025-11-18 16:24:57.842471', 'Super Rich Kids', '6', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.845952', '2025-11-18 16:24:57.845952', 'Pilot Jones', '4', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.848653', '2025-11-18 16:24:57.848653', 'Crack Rock', '4', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.852040', '2025-11-18 16:24:57.852040', 'Pyramids', '10', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.854794', '2025-11-18 16:24:57.854794', 'Lost', '4', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.858147', '2025-11-18 16:24:57.858147', 'White', '2', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.860843', '2025-11-18 16:24:57.860843', 'Monks', '4', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.863398', '2025-11-18 16:24:57.863398', 'Bad Religion', '3', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.867251', '2025-11-18 16:24:57.867251', 'Pink Matter', '5', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.869931', '2025-11-18 16:24:57.869931', 'Forrest Gump', '4', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 4 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.873208', '2025-11-18 16:24:57.873208', 'End/Golden Girl', '9', 4) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.874358', '2025-11-18 16:24:57.874358', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/good-kid-maad-city.jpg', 'Good Kid, M.A.A.D City', 'Kendrick Lamar') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (3.5ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.877960', '2025-11-18 16:24:57.877960', 'Sherane a.k.a. Master Splinter''s Daughter', '5', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.884497', '2025-11-18 16:24:57.884497', 'Bitch, Don''t Kill My Vibe', '6', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.887472', '2025-11-18 16:24:57.887472', 'Backseat Freestyle', '4', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.889841', '2025-11-18 16:24:57.889841', 'The Art of Peer Pressure', '6', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.892272', '2025-11-18 16:24:57.892272', 'Money Trees', '7', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.895814', '2025-11-18 16:24:57.895814', 'Poetic Justice', '5', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.898181', '2025-11-18 16:24:57.898181', 'good kid', '4', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.901067', '2025-11-18 16:24:57.901067', 'm.A.A.d city', '6', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.903323', '2025-11-18 16:24:57.903323', 'Swimming Pools (Drank)', '6', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.906395', '2025-11-18 16:24:57.906395', 'Sing About Me, I''m Dying of Thirst', '13', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.909022', '2025-11-18 16:24:57.909022', 'Real', '8', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 5 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.911665', '2025-11-18 16:24:57.911665', 'Compton', '5', 5) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.912741', '2025-11-18 16:24:57.912741', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/ram.jpg', 'Random Access Memories', 'Daft Punk') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.915525', '2025-11-18 16:24:57.915525', 'Give Life Back to Music', '5', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.918742', '2025-11-18 16:24:57.918742', 'The Game of Love', '6', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.921562', '2025-11-18 16:24:57.921562', 'Giorgio by Moroder', '10', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.924365', '2025-11-18 16:24:57.924365', 'Within', '4', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.926889', '2025-11-18 16:24:57.926889', 'Instant Crush', '6', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.929720', '2025-11-18 16:24:57.929720', 'Lose Yourself to Dance', '6', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.1ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.932099', '2025-11-18 16:24:57.932099', 'Touch', '9', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.934962', '2025-11-18 16:24:57.934962', 'Get Lucky', '7', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.937308', '2025-11-18 16:24:57.937308', 'Beyond', '5', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.939560', '2025-11-18 16:24:57.939560', 'Motherboard', '6', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.942848', '2025-11-18 16:24:57.942848', 'Fragments of Time', '5', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.945483', '2025-11-18 16:24:57.945483', 'Doin'' It Right', '5', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 6 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.948316', '2025-11-18 16:24:57.948316', 'Contact', '7', 6) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("created_at", "updated_at", "cover", "title", "artist") VALUES ('2025-11-18 16:24:57.949383', '2025-11-18 16:24:57.949383', 'https://static-assets.codecademy.com/Courses/learn-ruby-on-rails/BassMusic/the-2020-experience.png', 'The 20/20 Experience', 'Justin Timberlake') RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.952447', '2025-11-18 16:24:57.952447', 'Pusher Love Girl', '9', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.955081', '2025-11-18 16:24:57.955081', 'Suit & Tie', '6', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.957681', '2025-11-18 16:24:57.957681', 'Don''t Hold the Wall', '8', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.959943', '2025-11-18 16:24:57.959943', 'Strawberry Bubblegum', '8', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.962124', '2025-11-18 16:24:57.962124', 'Tunnel Vision', '7', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.3ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.965566', '2025-11-18 16:24:57.965566', 'Spaceship Coupe', '8', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.968515', '2025-11-18 16:24:57.968515', 'That Girl', '5', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.2ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.971537', '2025-11-18 16:24:57.971537', 'Let the Groove Get In', '8', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.974297', '2025-11-18 16:24:57.974297', 'Mirrors', '9', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='BassMusic'*/[0m
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.977431', '2025-11-18 16:24:57.977431', 'Blue Ocean Floor', '8', 7) RETURNING "id" /*application='BassMusic'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
