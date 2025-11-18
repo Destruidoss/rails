@@ -416,3 +416,574 @@ Processing by AlbumsController#index as HTML
 Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2025-11-18 16:49:23 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+Processing by AlbumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT "albums".* FROM "albums" /*action='index',application='BassMusic',controller='albums'*/[0m
+  ↳ app/views/albums/index.html.erb:4
+  Rendered albums/index.html.erb within layouts/application (Duration: 6.0ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | GC: 0.5ms)
+Completed 200 OK in 51ms (Views: 12.5ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 25.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-11-18 16:49:24 +0000
+Processing by AlbumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" /*action='index',application='BassMusic',controller='albums'*/[0m
+  ↳ app/views/albums/index.html.erb:4
+  Rendered albums/index.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/albums/7" for 127.0.0.1 at 2025-11-18 16:49:26 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    1: 
+    2: <div class="show row">
+    3:   <div class="cover col-md-4"> <img src="<%= @album.cover %>"> </div>
+    4: 
+    5:   <div class="col-sm-8">
+    6:     <h3 class="album-title"> <%= @album.title %> </h3>
+    7:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:4
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+Started GET "/albums/7" for 127.0.0.1 at 2025-11-18 16:55:35 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 7.4ms | GC: 5.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | GC: 5.9ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 24.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    1: 
+    2: <div class="show row">
+    3:   <div class="cover col-md-4"> <img src="<%= @album.cover %>"> </div>
+    4: 
+    5:   <div class="col-sm-8">
+    6:     <h3 class="album-title"> <%= @album.title %> </h3>
+    7:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:4
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:4
+Started GET "/albums/2" for 127.0.0.1 at 2025-11-18 16:55:38 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    1: 
+    2: <div class="show row">
+    3:   <div class="cover col-md-4"> <img src="<%= @album.cover %>"> </div>
+    4: 
+    5:   <div class="col-sm-8">
+    6:     <h3 class="album-title"> <%= @album.title %> </h3>
+    7:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:4
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:4
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 16:55:41 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    1: 
+    2: <div class="show row">
+    3:   <div class="cover col-md-4"> <img src="<%= @album.cover %>"> </div>
+    4: 
+    5:   <div class="col-sm-8">
+    6:     <h3 class="album-title"> <%= @album.title %> </h3>
+    7:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:4
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:4
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 16:57:07 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="cover col-md-4">
+    4:    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 16:57:08 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 4.2ms | GC: 3.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 3.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="cover col-md-4">
+    4:    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 16:57:08 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="cover col-md-4">
+    4:    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 16:57:09 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="cover col-md-4">
+    4:    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:04:33 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4:    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:28 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:29 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:29 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:29 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:29 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:29 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:30 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:30 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:05:41 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="cover col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/albums/6" for 127.0.0.1 at 2025-11-18 17:06:34 +0000
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/show.html.erb within layouts/application
+  Rendered albums/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `cover' for nil)
+Caused by: NoMethodError (undefined method `cover' for nil)
+
+Information for: ActionView::Template::Error (undefined method `cover' for nil):
+    2: <div class="show row">
+    3:   <div class="cover col-md-4">
+    4: #    <img src="<%= @album.cover %>"> </div>
+    5: 
+    6:   <div class="col-sm-8">
+    7:     <h3 class="album-title"> <%= @album.title %> </h3>
+    8:     <p class="album-artist"> <%= @album.artist %> </p>
+  
+app/views/albums/show.html.erb:5
+
+Information for cause: NoMethodError (undefined method `cover' for nil):
+  
+app/views/albums/show.html.erb:5
+Started GET "/" for 127.0.0.1 at 2025-11-18 17:06:56 +0000
+Processing by AlbumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" /*action='index',application='BassMusic',controller='albums'*/[0m
+  ↳ app/views/albums/index.html.erb:3
+  Rendered albums/index.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 7.9ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
