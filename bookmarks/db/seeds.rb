@@ -18,6 +18,7 @@ b7 = Book.create(title: "The Power of Habit", author: "Charles Duhigg", descript
 b8 = Book.create(title: "A Brief History of Time", author: "Stephen W. Hawking", description: "The British cosmologist reviews efforts to create a unified theory of the universe.", publisher: "Bantam", weeks_on_list: 8, rank_this_week: 8)
 b9 = Book.create(title: "10% Happier", author: "Dan Harris", description: "A co-anchor of \"Nightline\" reports on the science and spiritual basis of meditation and how it has improved his life.", publisher: "Dey St.", weeks_on_list: 3, rank_this_week: 9)
 b10 = Book.create(title: "The New Jim Crow", author: "Michelle Alexander", description: "A law professor takes aim at the war on drugs and its impact on black men.", publisher: "New Press", weeks_on_list: 88, rank_this_week: 10)
+b11 = Book.create(title: "INTERESTELAR", author: "EU", description: "AAAA", publisher: "EU MESMO PUBLIQUEI", weeks_on_list: 1000, rank_this_week: 100)
 
 Review.create(comment: "[My] favorite book of the year. Chris Kyle's American Sniper is an amazingly detailed account of fighting in Iraq -- a humanizing, brave story that's extremely readable.", author: "New York Times Book Review", book_id: b1.id)
 Review.create(comment: "In the community of elite warriors, one man has risen above our ranks and distinguished himself as unique. Chris Kyle is that man. A master sniper, Chris has done and seen things that will be talked about for generations to come.", author: "Marcus Luttrell", book_id: b1.id)
@@ -48,3 +49,4 @@ Review.create(comment: "Harris' journey of discovery brought back lessons for al
 
 Review.create(comment: "Devastating. . . . Alexander does a fine job of truth-telling, pointing a finger where it rightly should be pointed: at all of us, liberal and conservative, white and black.", author: "Forbes", book_id: b10.id)
 Review.create(comment: "Invaluable . . . a timely and stunning guide to the labyrinth of propaganda, discrimination, and racist policies masquerading under other names that comprises what we call justice in America.", author: "Daily Kos", book_id: b10.id)
+Review.create(comment: "livro publicado com argumentos", author: "joao almeida", book_id: b11.id)
