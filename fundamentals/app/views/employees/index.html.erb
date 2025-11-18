@@ -1,19 +1,19 @@
 <h1>Comunicado RH - Entradas e Saídas</h1>
 
-<h2>Entraram em <%= Date.current.strftime('%B de %Y') %></h2>
+<h2>Entraram em <%= Date.current.strftime('%B de %Y').nil? %></h2>
 <ul>
   <% @hired_this_month.each do |emp| %>
-    <li><strong style="color: green;"><%= emp.name %></strong> - Admitido em <%= emp.hired_at.strftime('%d/%m/%Y') %></li>
+    <li><strong style="color: green;"><%= emp.name %></strong> - Admitido em <%= emp.hired_at.strftime('%d/%m/%Y').nil? %></li>
   <% end %>
   <% if @hired_this_month.empty? %>
     <li><em>Nenhum funcionário contratado este mês.</em></li>
   <% end %>
 </ul>
 
-<h2>Saíram em <%= Date.current.strftime('%B de %Y') %></h2>
+<h2>Saíram em <%= Date.current.strftime('%B de %Y').nil? %></h2>
 <ul>
   <% @fired_this_month.each do |emp| %>
-    <li><strong style="color: red;"><%= emp.name %></strong> - Demitido em <%= emp.fired_at.strftime('%d/%m/%Y') %></li>
+    <li><strong style="color: red;"><%= emp.name %></strong> - Demitido em <%= emp.fired_at.strftime('%d/%m/%Y').nil? %></li>
   <% end %>
   <% if @fired_this_month.empty? %>
     <li><em>Nenhum funcionário demitido este mês.</em></li>
@@ -38,7 +38,7 @@
       <tr>
         <td><%= emp.name %></td>
         <td><%= emp.email %></td>
-        <td><%= emp.hired_at.strftime('%d/%m/%Y') %></td>
+        <td><%= emp.hired_at.strftime('%d/%m/%Y').nil? %></td>
         <td><%= emp.fired_at ? emp.fired_at.strftime('%d/%m/%Y') : '-' %></td>
         <td><%= emp.active ? 'Ativo' : 'Inativo' %></td>
       </tr>
