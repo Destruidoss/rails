@@ -389,3 +389,30 @@ Migrating to CreateTracks (20251118161148)
   [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 7 LIMIT 1 /*application='BassMusic'*/[0m
   [1m[36mTrack Create (0.0ms)[0m  [1m[32mINSERT INTO "tracks" ("created_at", "updated_at", "name", "minutes", "album_id") VALUES ('2025-11-18 16:24:57.977431', '2025-11-18 16:24:57.977431', 'Blue Ocean Floor', '8', 7) RETURNING "id" /*application='BassMusic'*/[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='BassMusic'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-11-18 16:41:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BassMusic'*/[0m
+Processing by AlbumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT "albums".* FROM "albums" /*action='index',application='BassMusic',controller='albums'*/[0m
+  ↳ app/views/albums/index.html.erb:4
+  Rendered albums/index.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 12.5ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tags" for 127.0.0.1 at 2025-11-18 16:41:41 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/tags"):
+  
+Started GET "/" for 127.0.0.1 at 2025-11-18 16:41:46 +0000
+Processing by AlbumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" /*action='index',application='BassMusic',controller='albums'*/[0m
+  ↳ app/views/albums/index.html.erb:4
+  Rendered albums/index.html.erb within layouts/application (Duration: 2.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.9ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.9ms)
+
+
