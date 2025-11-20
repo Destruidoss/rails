@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get "portfolio", to: "pages#portfolio"
   get 'about', to: 'pages#about'
-  get 'ccontact', to: 'pages#contact'
+  get 'contact', to: 'pages#contact'
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

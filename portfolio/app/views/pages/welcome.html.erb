@@ -1,35 +1,7 @@
-<header class="bg-dark text-white">
-  <nav class="navbar navbar-expand-lg navbar-dark container">
-    <a class="navbar-brand" href="/">João Almeida</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><%= link_to "Início", root_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Portfólio", portfolio_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Sobre", about_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Contato", contact_path, class: "nav-link" %></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<section class="hero text-center text-white d-flex align-items-center" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat; min-height: 90vh;">
-  <div class="container">
+<section class="hero text-center text-white d-flex align-items-center justify-content-center" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover; min-height: 90vh;">
+  <div>
     <h1 class="display-3 fw-bold">Olá, eu sou Seu Nome</h1>
-    <p class="lead mb-4">Desenvolvedor Ruby on Rails | Apaixonado por criar soluções web incríveis</p>
+    <p class="lead mb-4">Desenvolvedor Ruby on Rails | Apaixonado por código limpo</p>
     <%= link_to "Ver meu trabalho", portfolio_path, class: "btn btn-primary btn-lg" %>
   </div>
 </section>
-
-<footer class="bg-dark text-white py-5 mt-5">
-  <div class="container text-center">
-    <div class="mb-3">
-      <a href="https://github.com/seuusuario" class="text-white mx-3"><i class="bi bi-github fs-3"></i></a>
-      <a href="https://linkedin.com/in/seuusuario" class="text-white mx-3"><i class="bi bi-linkedin fs-3"></i></a>
-      <a href="https://twitter.com/seuusuario" class="text-white mx-3"><i class="bi bi-twitter fs-3"></i></a>
-    </div>
-    <p class="mb-0">&copy; <%= Time.current.year %> Seu Nome. Todos os direitos reservados.</p>
-  </div>
-</footer>
